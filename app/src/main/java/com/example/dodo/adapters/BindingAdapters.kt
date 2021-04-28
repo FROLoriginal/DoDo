@@ -17,7 +17,7 @@ fun ImageView.bindImageUrl(url: String?) {
     if (!url.isNullOrBlank()) {
         Glide.with(this)
             .load(url)
-            .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .centerCrop()
             .into(this)
     }

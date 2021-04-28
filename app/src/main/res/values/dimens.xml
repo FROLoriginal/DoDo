@@ -2,4 +2,15 @@
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="price_button_width">87dp</dimen>
+    <dimen name="price_button_height">32dp</dimen>
+    <dimen name="price_button_corner">6dp</dimen>
+    <dimen name="price_button_margin_start">106dp</dimen>
+    <dimen name="meal_name_size">16sp</dimen>
+    <dimen name="meal_image_size">135dp</dimen>
+    <dimen name="meal_disc_cardview_size">16dp</dimen>
+    <dimen name="banner_width">300dp</dimen>
+    <dimen name="banner_height">112dp</dimen>
+    <dimen name="banner_margin">16dp</dimen>
+    <dimen name="icon_padding">12dp</dimen>
 </resources>

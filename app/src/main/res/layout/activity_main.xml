@@ -38,15 +38,10 @@
                 app:contentScrim="@color/white"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="96dp"
-                    app:layout_collapseMode="pin"
-                    >
-
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/hardCodeRV"
+                        android:layout_marginTop="96dp"
+                        app:layout_collapseMode="pin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -55,45 +50,57 @@
                         app:setAdapter="@{recyclerViewAdapter}"
                         app:setManager="@{recyclerViewManager}"
                         tools:listitem="@layout/hard_code_card_view" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:orientation="vertical"
-                    android:layout_marginTop="232dp"
-                    app:layout_collapseMode="pin">
-
-                    <com.google.android.material.tabs.TabLayout
-                        android:id="@+id/tab_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="32dp"
-                        app:tabIndicatorColor="#33FD3A69"
-                        app:tabMode="scrollable"
-                        app:tabSelectedTextColor="#FD3A69"
-                        app:tabTextColor="@color/black" />
-                </LinearLayout>
 
                 <androidx.appcompat.widget.Toolbar
                     android:layout_width="match_parent"
-                    android:layout_height="?actionBarSize"
-                    android:layout_marginTop="24dp"
-                    android:gravity="center"
+                    android:layout_height="104dp"
+                    android:background="@color/background"
+                    android:gravity="top"
                     app:layout_collapseMode="pin">
 
-                    <com.google.android.material.button.MaterialButton
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Москва"
-                        android:textColor="@color/black"
-                        app:icon="@drawable/ic_expand_more_black_24dp"
-                        app:iconGravity="textEnd"
-                        app:iconTint="@color/black" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.button.MaterialButton
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/moscow"
+                            android:textColor="@color/black"
+                            app:icon="@drawable/ic_expand_more_black_24dp"
+                            app:iconGravity="textEnd"
+                            app:iconTint="@color/black" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <ImageButton
+                            android:layout_width="@android:dimen/app_icon_size"
+                            android:layout_height="@android:dimen/app_icon_size"
+                            android:background="@color/material_on_primary_emphasis_high_type"
+                            android:padding="@dimen/icon_padding"
+                            android:src="@drawable/ic_qr_code_scanner_black_24dp" />
+                    </LinearLayout>
 
                 </androidx.appcompat.widget.Toolbar>
 
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="232dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/background"
+                    app:tabIndicatorColor="@color/B1Trans20"
+                    app:tabMode="scrollable"
+                    app:tabSelectedTextColor="@color/B1"
+                    app:tabTextColor="@color/black" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -104,12 +111,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-
-            <View
-                android:id="@+id/divider2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:attr/listDivider" />
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/pager"
