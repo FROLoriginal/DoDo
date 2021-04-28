@@ -1,3 +1,4 @@
+
 package com.example.dodo.adapters
 
 import android.view.LayoutInflater
@@ -12,19 +13,19 @@ import com.example.dodo.model.Meal
 import com.example.dodo.viewHolders.RecyclerViewHolder
 
 class RecyclerViewAdapter(private val meals: ArrayList<Meal>) :
-    RecyclerView.Adapter<RecyclerViewHolder>() {
+  RecyclerView.Adapter<RecyclerViewHolder>() {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding: MenuCardViewBinding =
-            DataBindingUtil.inflate(inflater, R.layout.menu_card_view, parent, false)
-        return RecyclerViewHolder(binding)
-    }
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder {
+    val inflater = LayoutInflater.from(parent.context)
+    val binding: MenuCardViewBinding =
+      DataBindingUtil.inflate(inflater, R.layout.menu_card_view, parent, false)
+    return RecyclerViewHolder(binding)
+  }
 
-    override fun getItemCount() = meals.size
+  override fun getItemCount() = meals.size
 
-    override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
-        holder.bind(meals[position])
-    }
+  override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
+    holder.bind(meals[position])
+  }
 }

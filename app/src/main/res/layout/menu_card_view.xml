@@ -1,62 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="meal"
             type="com.example.dodo.model.Meal" />
     </data>
 
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            app:setImageUrl="@{meal.strMealThumb}"
-            android:layout_height="wrap_content"
-            tools:srcCompat="@tools:sample/avatars"
-            />
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardElevation="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginLeft="10dp">
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/title_menu"
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="135dp"
+                android:layout_height="135dp"
+                app:setImageUrl="@{meal.strMealThumb}"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:text="@{meal.strMeal}"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                android:layout_height="match_parent"
+                android:layout_marginStart="22dp"
+                android:orientation="vertical">
 
-            <TextView
+                <TextView
+                    android:id="@+id/title_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{meal.strMeal}"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="16sp" />
+
+                <TextView
                 android:id="@+id/ingredients_menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Лосось, рис, васаби, колбаса, тесто, яичный белок" />
+                android:text='@{"Ингредиенты доступны по id = " + meal.idMeal}' />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"  />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:text="Button" />
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="87dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginStart="106dp"
+                    android:textStyle="normal"
+                    android:fontFamily="SF UI Display"
+                    android:textSize="13sp"
+                    android:text='@{"от " + String.valueOf( (int)(Math.random() * 100)) + " р"}'
+                    android:textColor="#FD3A69"
+                    app:cornerRadius="6dp"
+                    app:strokeColor="#FD3A69"
+                    app:rippleColor="#FD3A69"
+                    android:insetBottom="0dp"
+                    />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

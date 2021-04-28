@@ -3,6 +3,7 @@ package com.example.dodo.adapters
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
@@ -13,7 +14,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 @BindingAdapter("setImageUrl")
 fun ImageView.bindImageUrl(url: String?) {
 
-    if (url.isNullOrBlank()) {
+    if (!url.isNullOrBlank()) {
         Glide.with(this)
             .load(url)
             .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
@@ -26,10 +27,14 @@ fun ImageView.bindImageUrl(url: String?) {
 fun RecyclerView.bindRecyclerViewAdapter(adapter: RecyclerView.Adapter<*>){
     this.adapter = adapter
     setHasFixedSize(true)
-    layoutManager = LinearLayoutManager(context).also { it.orientation = RecyclerView.HORIZONTAL }
 }
 
-@BindingAdapter("setAdapter")
-fun ViewPager2.bindViewPager2Adapter(adapter: FragmentStateAdapter){
-    this.adapter = adapter
+@BindingAdapter("setManager")
+fun RecyclerView.bindRecyclerViewOrientation(manager: LinearLayoutManager){
+    layoutManager = manager
+}
+
+@BindingAdapter("setDecorator")
+fun RecyclerView.bindRecyclerViewDecorator(decoration: DividerItemDecoration){
+    addItemDecoration(decoration)
 }
